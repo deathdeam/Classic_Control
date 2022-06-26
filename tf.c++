@@ -1,14 +1,15 @@
 #include"tf.h"
-
+#include<vector>
+#include<iostream>
 trans_func::trans_func(){
 
 }
-trans_func::trans_func(const std::vector<int> & num){ 
+trans_func::trans_func(std::vector<int> & num){ 
     numerator = num;
     denominator = {1};
 }
 
-trans_func::trans_func(const std::vector<int> & num, const std::vector<int> & deno){ 
+trans_func::trans_func(std::vector<int> & num, std::vector<int> & deno){ 
     numerator = num;
     denominator = deno;
 }
@@ -57,21 +58,21 @@ void trans_func::Display(){
 }
 
 
-std::vector<int> vector_addition(std::vector<int> a , std::vector<int>  b){
+std::vector<int> trans_func::vector_addition(std::vector<int> a , std::vector<int>  b){
     if(a.size() >= b.size()){
-        for(vector<int>::reverse_iterator i = a.rbegin(), j = b.rbegin() ; i != a.rend(), j != b.rend();i++, j++ ){
+        for(std::vector<int>::reverse_iterator i = a.rbegin(), j = b.rbegin() ; i != a.rend(), j != b.rend();i++, j++ ){
             *i += *j;
         }
         return a;
     }
     else{
-        for(vector<int>::reverse_iterator i = a.rbegin(), j = b.rbegin() ; i != a.rend(), j != b.rend();i++, j++ ){
+        for(std::vector<int>::reverse_iterator i = a.rbegin(), j = b.rbegin() ; i != a.rend(), j != b.rend();i++, j++ ){
             *j += *i;
         }
         return b;
     }
 }
-std::vector<int> vector_multiply(std::vector<int> a, std::vector<int> b){
+std::vector<int> trans_func::vector_multiply(std::vector<int> a, std::vector<int> b){
     std::vector<int> result(a.size()+b.size()-1, 0);
     for(int i = 0; i < a.size(); i++){
         for(int j = 0; j < b.size(); j++){
