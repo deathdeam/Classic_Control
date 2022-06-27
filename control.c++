@@ -2,7 +2,7 @@
 #include <vector>
 #include "tf.h"
 using namespace std;
-void Block_diagram(){
+/*void Block_diagram(){
     Input
     Controller
     Plant
@@ -15,11 +15,12 @@ void Block_diagram(){
     //time varient system.
 
 }
-
+*/
 
 int main() {
     vector<int> num = {1,23,3};
     vector<int> den = {1,2,5,7,8};
+    trans_func func;
     trans_func func1(num);
     trans_func func2(den);
     trans_func test1 = func1 + func2;
